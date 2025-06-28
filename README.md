@@ -4,8 +4,6 @@ This folder contains tools and scripts for synchronizing property listings betwe
 
 ## Structure
 
-- `synchronizer/`  
-  Contains the main synchronizer logic (JavaScript/TypeScript) for continuous sync.
 - `synchronizer.ts`  
   Script for fetching missed listings from the blockchain and storing them in MongoDB.
 - `.github/workflows/`  
@@ -36,20 +34,6 @@ npm install
 tsc synchronizer.ts
 
 # Run the script
-node synchronizer.js
-```
-
-Or, if using ts-node:
-
-```bash
-npx ts-node synchronizer.ts
-```
-
-#### JavaScript Synchronizer
-
-```bash
-cd synchronizer
-npm install
 node synchronizer.js
 ```
 
