@@ -28,9 +28,9 @@ jobs:
       - name: Run synchronizer
         env:
           MONGO_URI: ${{ secrets.MONGO_URI }}
-          DB_DATABASE: ${{ secrets.DB_DATABASE }}
-          COLLECTION_NAME: ${{ secrets.COLLECTION_NAME }}
-          DP_CONTRACT_ADDRESS: ${{ secrets.DP_CONTRACT_ADDRESS }}
-          BLOCKCHAIN_PROVIDER_URL: ${{ secrets.BLOCKCHAIN_PROVIDER_URL }}
-          DP_ABI_VERSION: ${{ secrets.DP_ABI_VERSION }}
+          DB_DATABASE: ${{ vars.DB_DATABASE }}
+          COLLECTION_NAME: ${{ vars.COLLECTION_NAME }}
+          DP_CONTRACT_ADDRESS: ${{ vars.DP_CONTRACT_ADDRESS }}
+          BLOCKCHAIN_PROVIDER_URL: ${{ vars.BLOCKCHAIN_PROVIDER_URL }}
+          DP_ABI_VERSION: ${{ vars.DP_ABI_VERSION }}
         run: node synchronizer.js
