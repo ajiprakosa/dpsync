@@ -23,7 +23,7 @@ jobs:
         run: npm install
 
       - name: Compile TypeScript
-        run: npx tsc synchronizer.ts
+        run: npx tsc
 
       - name: Run synchronizer
         env:
