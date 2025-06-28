@@ -1,0 +1,36 @@
+name: Daftar Properti Sync
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '0 0,12 * * *' # Runs at 00:00 and 12:00 UTC every day
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    environment: production
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '20'
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Compile TypeScript
+        run: npx tsc synchronizer.ts
+
+      - name: Run synchronizer
+        env:
+          MONGO_URI: ${{ secrets.MONGO_URI }}
+          DB_DATABASE: ${{ secrets.DB_DATABASE }}
+          COLLECTION_NAME: ${{ secrets.COLLECTION_NAME }}
+          DP_CONTRACT_ADDRESS: ${{ secrets.DP_CONTRACT_ADDRESS }}
+          BLOCKCHAIN_PROVIDER_URL: ${{ secrets.BLOCKCHAIN_PROVIDER_URL }}
+          DP_ABI_VERSION: ${{ secrets.DP_ABI_VERSION }}
+        run: node synchronizer.js

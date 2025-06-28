@@ -1,0 +1,9 @@
+{
+  "dependencies": {
+    "daftar-properti-sync": "git+https://github.com/daftarproperti/daftar-properti-sync.git#2ba31885e539625016b7df32247ed9f9dee3526d",
+    "mongodb": "^4.17"
+  },
+  "devDependencies": {
+    "typescript": "^5.8.3"
+  }
+}
